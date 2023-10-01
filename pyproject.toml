@@ -36,7 +36,7 @@ test = ["pytest", "webdriver_manager"]
 Homepage = "https://github.com/pelgabalawy/selenium-component-factory"
 
 [tool.bumpver]
-current_version = "1.0.0"
+current_version = "0.0.1"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message  = "Bump version {old_version} -> {new_version}"
 commit          = true
@@ -45,4 +45,4 @@ push            = false
 
 [tool.bumpver.file_patterns]
 "pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
-"src/reader/__init__.py" = ["{version}"]
+"seleniumcompfactory/__init__.py" = ["{version}"]
