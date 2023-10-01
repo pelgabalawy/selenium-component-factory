@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "selenium-component-factory"
-version = "0.0.1"
+version = "1.0.0"
 description = "Pyhon library provides component factory approach to implement component object modle in selenium."
 readme = "README.md"
 requires-python = ">=3.7"
@@ -36,7 +36,7 @@ test = ["pytest", "webdriver_manager"]
 Homepage = "https://github.com/pelgabalawy/selenium-component-factory"
 
 [tool.bumpver]
-current_version = "0.0.1"
+current_version = "1.0.0"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message  = "Bump version {old_version} -> {new_version}"
 commit          = true
