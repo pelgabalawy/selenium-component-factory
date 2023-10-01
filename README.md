@@ -1,0 +1,2 @@
+- install package `pip install selenium-component-factory`
+- install package with extra dependencies for unite testing `pip install selenium-component-factory[test]`

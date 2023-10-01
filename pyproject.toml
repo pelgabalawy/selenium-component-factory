@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "selenium-component-factory"
+version = "0.0.1"
+description = "Pyhon library provides component factory approach to implement component object modle in selenium."
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE.txt"}
+keywords = ["selenium", "pageFactory", "qa", "automation"]
+
+authors = [
+    { name = "Peter Elgabalawy", email = "pelgabalawy@gmail.com" }
+]
+maintainers = [
+  {name = "Peter Elgabalawy", email = "pelgabalawy@gmail.com" }
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "selenium >= 4.0.0"
+]
+
+[project.optional-dependencies]
+dev = ["bumpver"]
+test = ["pytest", "webdriver_manager"]
+
+[project.urls]
+Homepage = "https://github.com/pelgabalawy/selenium-component-factory"
+
+[tool.bumpver]
+current_version = "1.0.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message  = "Bump version {old_version} -> {new_version}"
+commit          = true
+tag             = true
+push            = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
+"src/reader/__init__.py" = ["{version}"]

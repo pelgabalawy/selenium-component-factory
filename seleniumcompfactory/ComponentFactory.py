@@ -1,8 +1,8 @@
+from selenium.common import StaleElementReferenceException, NoSuchElementException, TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import *
-from selenium.webdriver import ActionChains
+from typing import Dict
 
 
 class CompFactoryException(Exception):
@@ -25,12 +25,15 @@ class ElementNotVisibleException(CompFactoryException):
 
 
 class ComponentFactory(object):
-    timeout: int = 10
-    component_selector: tuple = None
-    highlight: bool = False
-    highlight_color: str = '#33ffff'
-    mobile_test: bool = False  # Added for Mobile support
+    timeout: int = 10                   # the global timeout specified to wait for elements to show up
+    highlight: bool = False             # hightlight elements when they are found
+    highlight_color: str = '#33ffff'    # the color used to highlight elements
 
+    mobile_test: bool = False           # Mobile support
+
+    locators: Dict[str, str] = {}       # elements within the component
+
+    # mapping of the available selectors in selenium for web elements
     TYPE_OF_LOCATORS = {
         'css': By.CSS_SELECTOR,
         'id': By.ID,
@@ -52,12 +55,6 @@ class ComponentFactory(object):
             self.driver = instance.driver
 
     def __getattr__(self, loc):
-        # check if the component is available to verify its element
-        if not self.component_selector:
-            raise ComponentSelectorNotSpecified(
-                "An exception occurred. With Element -: Component selector"
-                " - locator: (" + self.component_selector[0] + ", " + self.component_selector[1] + ")"
-            )
         # if it's mobile component we use this code
         if self.mobile_test:
             if loc in self.locators.keys():
