@@ -29,7 +29,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["bumpver"]
+dev = ["bumpver", "build", "twine"]
 test = ["pytest", "webdriver_manager"]
 
 [project.urls]
